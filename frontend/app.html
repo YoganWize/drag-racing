@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Гонки по вертикале</title>
+    <script type="text/javascript">
+        var x,y,obj,corner,dc;
+        function init_move_line(x,y,d,obid,timeout) {
+            var obj=document.getElementById(obid);
+            dx = (x-obj.offsetLeft);
+            dy = (y-obj.offsetTop);
+            var line=Math.sqrt(dx*dx+dy*dy);
+            dx=d*dx/line;
+            dy=d*dy/line;
+            dc=line;
+            moveL(obj.offsetLeft,obj.offsetTop,x,y,dx,dy,dc,obid,timeout);
+        }
+        function moveL(x0,y0,x,y,dx,dy,dc,obid,timeout){
+            /*
+             x - конечные координаты точки по оси х
+             y - конечные координаты точки по оси у
+             d - шаг в пикселях
+             obid - id объекта
+             timeout - временной интервал
+             */
+            obj=document.getElementById(obid);
+            x0 += dx;
+            y0 += dy;
+            dc-=Math.sqrt(dx*dx+dy*dy);
+            obj.style.left=parseInt(x0)+"px";
+            obj.style.top=parseInt(y0)+"px";
+            if(dc>0) setTimeout("moveL("+x0+","+y0+","+x+","+y+","+dx+","+dy+","+dc+",'"+obid+"',"+timeout+")" , timeout);
+        }
+
+        function start() {
+            init_move_line(window.innerWidth - 40, 0,5,'move',50);
+            init_move_line(window.innerWidth - 40, 100,5,'move1',50);
+        }
+    </script>
+    <style>
+        @keyframes example {
+           0% {transform: rotate(90deg)}
+            25%  {transform: rotate(180deg)}
+            50%  {transform: rotate(260deg)}
+            100%{transform: rotate(360deg)}
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" onclick="start()" value="start"/>
+<div id="move" style="position:absolute;height:30px;width:30px;background-color:#000000;left:10px;top:300px;animation-name: example;animation-duration: 10s;"></div>
+<div id="move1" style="position:absolute;height:30px;width:30px;background-color:#000000;left:10px;top:250px;animation-name: example;animation-duration: 10s;"></div>
+
+
+
+</body>
+</html>

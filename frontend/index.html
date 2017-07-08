@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .login-form{
+          background-color: #ccd;
+            margin: 10% auto;
+            text-align: center;
+            width: 25%;
+            border-radius: 3px;
+        }
+        .login-form input{
+            width: calc(90% - 10px - 10px);
+            height: 30px;
+            margin: 5px 5px ;
+            padding: 2px 5px;
+        }
+        .login-form-checkbox{
+            width: 5% !important;
+            height: auto !important;
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+        .login-form-header{
+            font-size: 2em;
+            font-weight: 100;
+            padding: 30px 0 15px 0;
+        }
+        .login-form button{
+          width: calc(90% - 10px - 10px);
+            background-color: #1243fd;
+            border: none;
+            color: white;
+            height: 30px;
+            font-size: 1.5em;
+        }
+        .login-form-footer{
+            color: #aaa;
+            margin: 10px 0 10px 0;
+            padding: 0 0 10px 0;
+        }
+        .login-form-footer a{
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <form method="POST" action="/">
+            <div>
+                <div class="login-form-header">Drag Racing</div>
+                <input type="email" placeholder="Username" required><br>
+                <input type="password" placeholder="password" required><br>
+                <button type="submit">login</button><br>
+                <div class="login-form-footer">
+                    <input type="checkbox" class="login-form-checkbox" required>Remember Me?
+                    <span>
+                        <a href="/signUP">Sign Up?</a>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
